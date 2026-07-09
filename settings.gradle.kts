@@ -1,0 +1,1 @@
+rootProject.name = "galaxy-training-spring-boot-gradle-plugin"
