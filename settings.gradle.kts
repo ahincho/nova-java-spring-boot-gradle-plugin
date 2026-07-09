@@ -1,1 +1,1 @@
-rootProject.name = "galaxy-training-spring-boot-gradle-plugin"
+rootProject.name = "nova-spring-boot-gradle-plugin"

@@ -1,4 +1,4 @@
-package pe.edu.galaxy.training.java.gradle;
+package pe.edu.nova.java.gradle;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
@@ -17,7 +17,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion;
  * @author Galaxy Training
  * @version 1.0.0
  */
-public class GalaxyTrainingSpringBootPlugin implements Plugin<Project> {
+public class NovaSpringBootPlugin implements Plugin<Project> {
 
     /** Versión de Java requerida por el framework. */
     private static final int JAVA_VERSION = 25;
@@ -26,10 +26,10 @@ public class GalaxyTrainingSpringBootPlugin implements Plugin<Project> {
     private static final String STARTER_VERSION = "1.0.0";
 
     /** Coordenadas del meta-framework starter. */
-    private static final String STARTER_DEPENDENCY = "pe.edu.galaxy.training.java.starters:galaxy-training-spring-boot-starter:" + STARTER_VERSION;
+    private static final String STARTER_DEPENDENCY = "pe.edu.nova.java.starters:galaxy-training-spring-boot-starter:" + STARTER_VERSION;
 
     /** Constructor por defecto. */
-    public GalaxyTrainingSpringBootPlugin() {}
+    public NovaSpringBootPlugin() {}
 
     @Override
     public void apply(Project project) {
