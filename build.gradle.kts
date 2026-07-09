@@ -1,6 +1,14 @@
 plugins {
     `java-gradle-plugin`
     `maven-publish`
+    id("net.nemerosa.versioning") version "4.0.1"
+}
+
+versioning {
+    releaseMode = "snapshot"
+    displayMode = "snapshot"
+    dirty = { it }
+    releaseBuild = false
 }
 
 group = "pe.edu.nova.java"
@@ -23,11 +31,11 @@ dependencies {
 
 gradlePlugin {
     plugins {
-        create("galaxyTrainingSpringBoot") {
+        create("novaSpringBoot") {
             id = "pe.edu.nova.java.spring-boot"
             implementationClass = "pe.edu.nova.java.gradle.NovaSpringBootPlugin"
-            displayName = "Galaxy Training Spring Boot Plugin"
-            description = "Convention plugin que configura proyectos Spring Boot con el meta-framework Galaxy Training."
+            displayName = "Nova Spring Boot Plugin"
+            description = "Convention plugin que configura proyectos Spring Boot con el meta-framework Nova."
         }
     }
 }
