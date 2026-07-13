@@ -81,7 +81,16 @@ dependencies {
             because("Same CVEs in 11.0.22")
         }
     }
-    implementation("org.springframework.boot:spring-boot-gradle-plugin:4.1.0")
+    // spring-boot-gradle-plugin is needed at COMPILE time (to apply it from
+    // NovaSpringBootPlugin's plugin code via project.plugins.apply("..."))
+    // but should NOT be in the published plugin's runtime classpath - its
+    // transitive deps include dependency-management-plugin 1.1.7 which pulls
+    // in old Spring Framework with 20+ CVEs (CVE-2018-1270, CVE-2022-22965,
+    // etc.) that the OWASP gate then sees. compileOnly excludes it from the
+    // runtime classpath, eliminating those false positives. Consumer projects
+    // that apply this Nova plugin still get the spring-boot-gradle-plugin
+    // applied transitively when NovaSpringBootPlugin triggers it.
+    compileOnly("org.springframework.boot:spring-boot-gradle-plugin:4.1.0")
 }
 
 gradlePlugin {
