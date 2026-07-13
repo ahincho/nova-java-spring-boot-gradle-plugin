@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/ahincho/nova-java-spring-boot-gradle-plugin/compare/v1.0.0...v1.0.1) (2026-07-13)
+
+
+### Bug Fixes
+
+* **ci:** add component + skip-snapshot + manifest-file (mask-utils pattern) ([bccba1a](https://github.com/ahincho/nova-java-spring-boot-gradle-plugin/commit/bccba1a901e8235bb8e1152b26f9b59137c6b038))
+* **ci:** add last-release-sha, include-component-in-tag: false, release-type: java to top-level config; pass manifest-file in wrapper ([ae519c7](https://github.com/ahincho/nova-java-spring-boot-gradle-plugin/commit/ae519c70e7de595174c5863bb1e123bc4e23131e))
+
 ## 1.0.0 (2026-07-10)
 
 
