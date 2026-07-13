@@ -1,16 +1,16 @@
 {
+  "last-release-sha": "06d246e50ee1f05cb5f52ac6457e9cd2832245bc",
   "packages": {
     ".": {
+      "component": "nova-java-spring-boot-gradle-plugin",
       "package-name": "pe.edu.nova.java:nova-java-spring-boot-gradle-plugin",
       "release-type": "java",
+      "include-component-in-tag": false,
+      "skip-snapshot": true,
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": true,
       "draft": false,
       "prerelease": false
     }
-  },
-  "last-release-sha": "06d246e50ee1f05cb5f52ac6457e9cd2832245bc",
-  "include-component-in-tag": false,
-  "include-v-in-tag": true,
-  "release-type": "java"
+  }
 }
