@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/ahincho/nova-java-spring-boot-gradle-plugin/compare/v1.0.1...v1.0.2) (2026-07-15)
+
+
+### Bug Fixes
+
+* **plugin:** replace dead umbrella starter coordinates with the two sub-starters ([fe8f1db](https://github.com/ahincho/nova-java-spring-boot-gradle-plugin/commit/fe8f1dbc557f81c8db6d727739ab9005c2bc9dfc))
+
 ## [1.0.1](https://github.com/ahincho/nova-java-spring-boot-gradle-plugin/compare/v1.0.0...v1.0.1) (2026-07-13)
 
 
