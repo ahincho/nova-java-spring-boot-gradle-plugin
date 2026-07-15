@@ -22,11 +22,25 @@ public class NovaSpringBootPlugin implements Plugin<Project> {
     /** Versión de Java requerida por el framework. */
     private static final int JAVA_VERSION = 25;
 
-    /** Versión del meta-framework starter. */
+    /** Versión de los sub-starters del meta-framework. */
     private static final String STARTER_VERSION = "1.0.0";
 
-    /** Coordenadas del meta-framework starter. */
-    private static final String STARTER_DEPENDENCY = "pe.edu.nova.java.starters:galaxy-training-spring-boot-starter:" + STARTER_VERSION;
+    /**
+     * Coordenadas del sub-starter mask-utils. Es el núcleo del meta-framework
+     * Nova: provee {@code nova.mask.*} (enmascaramiento de campos sensibles en
+     * Jackson, logs y respuestas REST) y se autodescubre desde
+     * {@code META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports}.
+     */
+    private static final String MASK_STARTER_DEPENDENCY =
+            "pe.edu.nova.java.starters:nova-mask-starter:" + STARTER_VERSION;
+
+    /**
+     * Coordenadas del sub-starter api-standard. Complementa el mask starter con
+     * {@code nova.api-standard.*} (respuestas API uniformes via interceptor +
+     * manejador global de excepciones).
+     */
+    private static final String API_STANDARD_STARTER_DEPENDENCY =
+            "pe.edu.nova.java.starters:nova-api-standard-starter:" + STARTER_VERSION;
 
     /** Constructor por defecto. */
     public NovaSpringBootPlugin() {}
@@ -45,8 +59,13 @@ public class NovaSpringBootPlugin implements Plugin<Project> {
         // 3. Configurar repositorios
         project.getRepositories().mavenLocal();
         project.getRepositories().mavenCentral();
-        // 4. Agregar dependencia al meta-framework starter
-        project.getDependencies().add("implementation", STARTER_DEPENDENCY);
+        // 4. Agregar dependencias a los sub-starters del meta-framework Nova.
+        // El umbrella legacy "galaxy-training-spring-boot-starter" ya no existe:
+        // hoy el repositorio nova-java-commons-spring-boot-starter publica los
+        // dos sub-starters por separado, así que se agregan ambos para preservar
+        // el comportamiento que tenía el plugin antes del rename.
+        project.getDependencies().add("implementation", MASK_STARTER_DEPENDENCY);
+        project.getDependencies().add("implementation", API_STANDARD_STARTER_DEPENDENCY);
         // 5. Configurar tests con JUnit Platform
         project.getTasks().withType(org.gradle.api.tasks.testing.Test.class, test -> test.useJUnitPlatform());
     }
